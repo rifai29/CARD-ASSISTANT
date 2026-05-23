@@ -1,0 +1,6 @@
+{
+  "name": "Card Game Hub",
+  "description": "Koleksi permainan kartu interaktif yang indah, menampilkan Blackjack Klasik dan petualangan Dungeon Card Crawler.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
