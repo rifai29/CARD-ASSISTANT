@@ -401,38 +401,38 @@ export default function BlackjackGame() {
   const getSuitIconAndColor = (suit: CardSuit) => {
     switch (suit) {
       case CardSuit.HEARTS:
-        return { icon: "♥", color: "text-rose-500" };
+        return { icon: "♥", color: "text-rose-650" };
       case CardSuit.DIAMONDS:
-        return { icon: "♦", color: "text-amber-500" };
+        return { icon: "♦", color: "text-amber-650" };
       case CardSuit.CLUBS:
-        return { icon: "♣", color: "text-emerald-400" };
+        return { icon: "♣", color: "text-emerald-850" };
       case CardSuit.SPADES:
-        return { icon: "♠", color: "text-slate-200" };
+        return { icon: "♠", color: "text-stone-950" };
     }
   };
 
   return (
-    <div className="w-full flex flex-col min-h-[580px] bg-[#0c0c0c] rounded-none border border-amber-500/20 shadow-card overflow-hidden relative select-none">
+    <div className="w-full flex flex-col min-h-[580px] bg-white rounded-none border border-stone-200 shadow-card overflow-hidden relative select-none">
       
       {/* GAME HEADER CONTROLS */}
-      <div className="flex justify-between items-center px-6 py-4 border-b border-white/5 bg-[#080808] relative z-10">
+      <div className="flex justify-between items-center px-6 py-4 border-b border-stone-200 bg-[#faf9f5] relative z-10">
         <div className="flex items-center gap-2.5 font-cinzel">
-          <div className="w-2.5 h-2.5 bg-amber-500 rotate-45"></div>
-          <span className="text-xs uppercase tracking-[0.25em] font-semibold text-slate-100">Aether Blackjack 21</span>
+          <div className="w-2.5 h-2.5 bg-amber-600 rotate-45"></div>
+          <span className="text-xs uppercase tracking-[0.25em] font-semibold text-stone-900 font-bold">Aether Blackjack 21</span>
         </div>
         
         <div className="flex items-center gap-3">
           <button
             onClick={handleToggleMute}
-            className="p-2 text-slate-400 hover:text-amber-500 bg-white/[0.02] border border-white/5 hover:border-amber-500/20 transition cursor-pointer"
+            className="p-2 text-stone-600 hover:text-amber-700 bg-stone-50 border border-stone-200 hover:border-amber-500/30 transition cursor-pointer"
             title={isMuted ? "Aktifkan suara" : "Senyap"}
           >
-            {isMuted ? <VolumeX className="w-4 h-4 text-red-500" /> : <Volume2 className="w-4 h-4" />}
+            {isMuted ? <VolumeX className="w-4 h-4 text-red-600" /> : <Volume2 className="w-4 h-4" />}
           </button>
           
           <button
             onClick={() => { soundEffects.playClick(); setShowRules(!showRules); }}
-            className="p-2 text-slate-400 hover:text-amber-500 bg-white/[0.02] border border-white/5 hover:border-amber-500/20 transition cursor-pointer"
+            className="p-2 text-stone-600 hover:text-amber-700 bg-stone-50 border border-stone-200 hover:border-amber-500/30 transition cursor-pointer"
             title="Cara bermain"
           >
             <BookOpen className="w-4 h-4" />
@@ -443,40 +443,40 @@ export default function BlackjackGame() {
       <div className="flex-1 flex flex-col md:flex-row relative">
         
         {/* CASINO HUD PANELS */}
-        <div className="w-full md:w-64 bg-[#080808] border-b md:border-b-0 md:border-r border-white/5 p-6 flex flex-col justify-between">
+        <div className="w-full md:w-64 bg-[#faf9f5] border-b md:border-b-0 md:border-r border-stone-200 p-6 flex flex-col justify-between">
           <div>
-            <span className="text-[10px] font-mono font-medium text-amber-500 tracking-[0.2em] uppercase block mb-3">STATISTIK MEJA</span>
+            <span className="text-[10px] font-mono font-semibold text-amber-750 tracking-[0.2em] uppercase block mb-3">STATISTIK MEJA</span>
             
             <div className="grid grid-cols-2 gap-2.5 mb-4">
-              <div className="bg-[#0c0c0c] p-3 border border-white/5">
-                <div className="text-[10px] text-slate-400 font-sans">Streak</div>
-                <div className="text-lg font-mono font-bold text-amber-500">{stats.streak}🔥</div>
+              <div className="bg-white p-3 border border-stone-200 shadow-sm">
+                <div className="text-[10px] text-stone-550 font-sans">Streak</div>
+                <div className="text-lg font-mono font-bold text-amber-600">{stats.streak}🔥</div>
               </div>
-              <div className="bg-[#0c0c0c] p-3 border border-white/5">
-                <div className="text-[10px] text-slate-400 font-sans">Tertinggi</div>
-                <div className="text-sm font-mono font-bold text-slate-300">${stats.peakBalance}</div>
+              <div className="bg-white p-3 border border-stone-200 shadow-sm">
+                <div className="text-[10px] text-stone-550 font-sans">Tertinggi</div>
+                <div className="text-sm font-mono font-bold text-stone-850">${stats.peakBalance}</div>
               </div>
             </div>
 
-            <div className="space-y-2.5 text-xs text-slate-400 border-t border-white/5 pt-4">
+            <div className="space-y-2.5 text-xs text-stone-600 border-t border-stone-205 pt-4">
               <div className="flex justify-between items-center">
-                <span className="text-[11px] tracking-wide text-slate-500">Menang:</span>
-                <span className="font-mono text-amber-500 font-bold">{stats.wins}</span>
+                <span className="text-[11px] tracking-wide text-stone-500">Menang:</span>
+                <span className="font-mono text-amber-600 font-bold">{stats.wins}</span>
               </div>
               <div className="flex justify-between items-center">
-                <span className="text-[11px] tracking-wide text-slate-500">Kalah:</span>
-                <span className="font-mono text-slate-500 font-bold">{stats.losses}</span>
+                <span className="text-[11px] tracking-wide text-stone-500">Kalah:</span>
+                <span className="font-mono text-stone-500 font-bold">{stats.losses}</span>
               </div>
               <div className="flex justify-between items-center">
-                <span className="text-[11px] tracking-wide text-slate-500">Seri / Push:</span>
-                <span className="font-mono text-slate-300">{stats.pushes}</span>
+                <span className="text-[11px] tracking-wide text-stone-500">Seri / Push:</span>
+                <span className="font-mono text-stone-705 font-medium">{stats.pushes}</span>
               </div>
             </div>
           </div>
 
-          <div className="mt-8 md:mt-0 pt-6 border-t border-white/5">
-            <span className="text-[10px] font-mono text-slate-500 tracking-[0.2em] uppercase block mb-3">CONVENANT MEMO</span>
-            <div className="bg-amber-500/[0.03] border border-amber-500/10 p-4 text-[11px] text-slate-400 leading-relaxed font-serif italic text-left relative">
+          <div className="mt-8 md:mt-0 pt-6 border-t border-stone-200">
+            <span className="text-[10px] font-mono text-stone-500 tracking-[0.2em] uppercase block mb-3">CONVENANT MEMO</span>
+            <div className="bg-amber-500/[0.03] border border-amber-500/20 p-4 text-[11px] text-stone-700 leading-relaxed font-serif italic text-left relative">
               <div className="absolute top-0 left-0 w-2 h-2 border-t border-l border-amber-500/40"></div>
               Bandar wajib menambah kartu sampai mencapai minimal 17. Blackjack membayar 3:2 secara instan.
             </div>
@@ -484,19 +484,19 @@ export default function BlackjackGame() {
         </div>
 
         {/* EMERALD FELT BJ TABLE AREA -> CONVERTED TO SOPHISTICATED NEBULA STARDUST */}
-        <div className="flex-1 p-6 flex flex-col justify-between bg-[#050505] relative overflow-hidden grid-bg-dots">
+        <div className="flex-1 p-6 flex flex-col justify-between bg-[#fbfaf6] relative overflow-hidden grid-bg-dots">
           
           {/* Deck shoe representation */}
-          <div className="absolute top-4 right-4 text-[9px] font-mono text-amber-500/40 bg-black/40 border border-white/5 px-2.5 py-1">
+          <div className="absolute top-4 right-4 text-[9px] font-mono text-amber-700 bg-white border border-stone-250 px-2.5 py-1 shadow-sm font-medium">
             SEPATU DEK: {deck.length} / 312
           </div>
 
           {/* DEALER SIDE */}
           <div className="flex flex-col items-center mb-6">
             <div className="flex items-center gap-3 mb-2">
-              <span className="text-[10px] uppercase tracking-[0.2em] font-mono text-slate-500 font-bold">Kartu Bandar</span>
+              <span className="text-[10px] uppercase tracking-[0.2em] font-mono text-stone-500 font-bold">Kartu Bandar</span>
               {dealerHand.length > 0 && (
-                <span className="bg-[#0c0c0c] border border-amber-500/20 px-2.5 py-0.5 text-[10px] font-mono text-amber-500 font-medium">
+                <span className="bg-white border border-amber-500/30 px-2.5 py-0.5 text-[10px] font-mono text-amber-750 font-bold shadow-sm">
                   SCORE: {status === "PLAYER_TURN" ? "?" : calculateHandValue(dealerHand)}
                 </span>
               )}
@@ -513,8 +513,8 @@ export default function BlackjackGame() {
                     transition={{ type: "spring", stiffness: 100, damping: 14, delay: idx * 0.15 }}
                     className={`w-20 h-28 sm:w-24 sm:h-34 rounded-none shadow-card transition-all relative ${
                       card.isRevealed 
-                        ? "bg-white border border-white/10 p-2 text-slate-900" 
-                        : "bg-black border border-amber-500/30"
+                        ? "bg-white border border-stone-200 p-2 text-stone-900" 
+                        : "bg-gradient-to-br from-amber-50 to-amber-100 border border-amber-500/40"
                     }`}
                   >
                     {card.isRevealed ? (
@@ -542,9 +542,9 @@ export default function BlackjackGame() {
                     ) : (
                       <div className="w-full h-full flex items-center justify-center relative overflow-hidden">
                         {/* Elegant Geometric Cardback */}
-                        <div className="absolute inset-1 border border-amber-500/20 bg-[#0c0c0c] flex items-center justify-center">
+                        <div className="absolute inset-1 border border-amber-500/30 bg-white flex items-center justify-center">
                           <div className="w-12 h-18 border-2 border-dashed border-amber-500/20 rounded flex items-center justify-center">
-                            <Sparkles className="w-4 h-4 text-amber-500/30 animate-pulse-slow" />
+                            <Sparkles className="w-4 h-4 text-amber-600/50 animate-pulse-slow" />
                           </div>
                         </div>
                       </div>
@@ -554,7 +554,7 @@ export default function BlackjackGame() {
               </AnimatePresence>
               
               {dealerHand.length === 0 && (
-                <div className="text-[10px] text-slate-600 font-mono tracking-widest uppercase">Meja Bandar Kosong</div>
+                <div className="text-[10px] text-stone-550 font-mono tracking-widest uppercase">Meja Bandar Kosong</div>
               )}
             </div>
           </div>
@@ -565,7 +565,7 @@ export default function BlackjackGame() {
               key={message}
               initial={{ scale: 0.95, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
-              className="text-center text-[11px] tracking-wide font-sans bg-[#0c0c0c] border border-amber-500/20 text-slate-200 px-6 py-2 rounded-none shadow-lg max-w-[90%]"
+              className="text-center text-[11px] tracking-wide font-sans bg-white border border-amber-500/40 text-stone-850 px-6 py-2 rounded-none shadow-card max-w-[95%] font-semibold"
             >
               {message}
             </motion.div>
@@ -582,7 +582,7 @@ export default function BlackjackGame() {
                     animate={{ opacity: 1, scale: 1, x: 0, y: 0, rotate: 0 }}
                     exit={{ opacity: 0, scale: 0.8 }}
                     transition={{ type: "spring", stiffness: 100, damping: 14, delay: idx * 0.15 }}
-                    className="w-20 h-28 sm:w-24 sm:h-34 rounded-none shadow-card bg-white border border-white/5 p-2 text-slate-900 transition-all cursor-default"
+                    className="w-20 h-28 sm:w-24 sm:h-34 rounded-none shadow-card bg-white border border-stone-200 p-2 text-stone-900 transition-all cursor-default"
                   >
                     <div className="h-full flex flex-col justify-between font-mono font-bold">
                       <div className="text-xs self-start leading-none flex flex-col items-start">
@@ -610,17 +610,17 @@ export default function BlackjackGame() {
               </AnimatePresence>
               
               {playerHand.length === 0 && (
-                <div className="flex flex-col items-center justify-center p-8 border border-dashed border-amber-500/20 rounded-none w-52 h-28 text-center text-xs text-slate-500 bg-black/40">
+                <div className="flex flex-col items-center justify-center p-8 border border-dashed border-stone-300 rounded-none w-52 h-28 text-center text-xs text-stone-550 bg-stone-50">
                   <Coins className="w-5 h-5 mb-1.5 opacity-40 text-amber-500" />
-                  <span className="text-[10px] uppercase tracking-wide">Taruhan Belum Aktif</span>
+                  <span className="text-[10px] uppercase tracking-wide font-medium">Taruhan Belum Aktif</span>
                 </div>
               )}
             </div>
 
             <div className="flex items-center gap-3 mt-3">
-              <span className="text-[10px] uppercase tracking-[0.2em] font-mono text-slate-500">Kartu Anda</span>
+              <span className="text-[10px] uppercase tracking-[0.2em] font-mono text-stone-500">Kartu Anda</span>
               {playerHand.length > 0 && (
-                <span className="bg-[#0c0c0c] border border-amber-500/20 px-2.5 py-0.5 text-[10px] font-mono text-amber-500 font-bold">
+                <span className="bg-white border border-amber-500/30 px-2.5 py-0.5 text-[10px] font-mono text-amber-700 font-bold shadow-sm">
                   KUMPULAN: {calculateHandValue(playerHand)}
                 </span>
               )}
@@ -628,37 +628,37 @@ export default function BlackjackGame() {
           </div>
 
           {/* CHIP SELECTION & GAME CONTROLS FOOTER */}
-          <div className="mt-8 pt-5 border-t border-white/5 bg-[#080808] -mx-6 -mb-6 p-6">
+          <div className="mt-8 pt-5 border-t border-stone-200 bg-[#faf9f5] -mx-6 -mb-6 p-6">
             <div className="flex flex-col lg:flex-row justify-between items-center gap-4">
               
               {/* CURRENT CREDITS / ADJUST BET */}
               <div className="flex items-center gap-5 w-full lg:w-auto justify-between lg:justify-start">
                 <div className="flex flex-col">
-                  <span className="text-[9px] text-slate-500 uppercase font-mono tracking-widest">KREDIT AKTIF</span>
-                  <div className="flex items-center gap-1.5 text-lg font-mono font-bold text-amber-500">
-                    <Coins className="w-4 h-4 text-amber-400" />
+                  <span className="text-[9px] text-stone-550 uppercase font-mono tracking-widest">KREDIT AKTIF</span>
+                  <div className="flex items-center gap-1.5 text-lg font-mono font-bold text-amber-600">
+                    <Coins className="w-4 h-4 text-amber-600" />
                     <span>${balance}</span>
                   </div>
                 </div>
 
-                <div className="h-8 w-[1px] bg-white/5"></div>
+                <div className="h-8 w-[1px] bg-stone-200"></div>
 
                 <div className="flex flex-col">
-                  <span className="text-[9px] text-slate-500 uppercase font-mono tracking-widest">TARUHAN AKTIF</span>
+                  <span className="text-[9px] text-stone-550 uppercase font-mono tracking-widest">TARUHAN AKTIF</span>
                   <div className="flex items-center gap-2">
                     {status === "BETTING" && (
                       <button 
                         onClick={() => adjustBet(-10)}
-                        className="w-5 h-5 bg-[#0c0c0c] border border-white/10 hover:border-amber-500/40 flex items-center justify-center text-xs text-slate-400 hover:text-white transition cursor-pointer"
+                        className="w-5 h-5 bg-white border border-stone-300 hover:border-amber-500 flex items-center justify-center text-xs text-stone-600 hover:text-amber-750 transition cursor-pointer"
                       >
                         -
                       </button>
                     )}
-                    <span className="text-lg font-mono font-bold text-white">${bet}</span>
+                    <span className="text-lg font-mono font-bold text-stone-800">${bet}</span>
                     {status === "BETTING" && (
                       <button 
                         onClick={() => adjustBet(10)}
-                        className="w-5 h-5 bg-[#0c0c0c] border border-white/10 hover:border-amber-500/40 flex items-center justify-center text-xs text-slate-400 hover:text-white transition cursor-pointer"
+                        className="w-5 h-5 bg-white border border-stone-300 hover:border-amber-500 flex items-center justify-center text-xs text-stone-600 hover:text-amber-750 transition cursor-pointer"
                       >
                         +
                       </button>
@@ -669,7 +669,7 @@ export default function BlackjackGame() {
                 {balance <= 0 && status === "BETTING" && (
                   <button
                     onClick={handleRefillBalance}
-                    className="ml-3 px-4 py-2 border border-amber-500/30 hover:border-amber-500 text-[10px] uppercase font-mono tracking-wider font-semibold bg-amber-500/10 text-amber-400 animate-pulse transition cursor-pointer"
+                    className="ml-3 px-4 py-2 border border-amber-500/30 hover:border-amber-500 text-[10px] uppercase font-mono tracking-wider font-semibold bg-amber-500/10 text-amber-700 animate-pulse transition cursor-pointer"
                   >
                     🚀 DEK REFILL
                   </button>
@@ -686,10 +686,10 @@ export default function BlackjackGame() {
                           key={v}
                           onClick={() => setFixedBet(v)}
                           disabled={v > balance}
-                          className={`w-10 h-10 sm:w-11 sm:h-11 rounded-full border border-dashed flex items-center justify-center font-mono font-bold text-xs shadow-md transition-all active:scale-95 disabled:opacity-35 disabled:cursor-not-allowed cursor-pointer ${
+                          className={`w-10 h-10 sm:w-11 sm:h-11 rounded-full border border-dashed flex items-center justify-center font-mono font-bold text-xs shadow-sm transition-all active:scale-95 disabled:opacity-35 disabled:cursor-not-allowed cursor-pointer ${
                             bet === v 
-                              ? "bg-amber-500 border-white text-[#050505] scale-110 shadow-lg" 
-                              : "bg-[#050505] border-white/10 text-slate-300 hover:border-amber-500/80 hover:text-amber-400"
+                              ? "bg-amber-600 border-amber-700 text-white scale-110 shadow-md" 
+                              : "bg-white border-stone-300 text-stone-700 hover:border-amber-500/80 hover:text-amber-750"
                           }`}
                         >
                           {v}
@@ -700,7 +700,7 @@ export default function BlackjackGame() {
                     <button
                       onClick={handleStartDeal}
                       disabled={balance <= 0}
-                      className="w-full sm:w-auto px-8 py-3 bg-amber-500 hover:bg-amber-400 disabled:bg-neutral-900 disabled:text-neutral-500 text-slate-950 font-mono font-bold uppercase tracking-wider transition-all transform active:scale-95 cursor-pointer"
+                      className="w-full sm:w-auto px-8 py-3 bg-amber-600 hover:bg-amber-500 disabled:bg-neutral-100 disabled:text-neutral-450 text-white font-mono font-bold uppercase tracking-wider transition-all transform active:scale-95 cursor-pointer shadow-md"
                     >
                       Bagi Kartu (Deal)
                     </button>
@@ -711,20 +711,20 @@ export default function BlackjackGame() {
                       <>
                         <button
                           onClick={handleHit}
-                          className="px-6 py-3 bg-white hover:bg-slate-200 text-black font-mono font-bold uppercase tracking-wider transition transform active:scale-95 cursor-pointer"
+                          className="px-6 py-3 bg-stone-900 hover:bg-stone-950 text-white font-mono font-bold uppercase tracking-wider transition transform active:scale-95 cursor-pointer shadow-md"
                         >
                           Hit
                         </button>
                         <button
                           onClick={handleStand}
-                          className="px-6 py-3 bg-[#0c0c0c] border border-white/25 hover:border-amber-500 text-white font-mono font-bold uppercase tracking-wider transition transform active:scale-95 cursor-pointer"
+                          className="px-6 py-3 bg-white border border-stone-300 hover:border-amber-500 text-stone-800 font-mono font-bold uppercase tracking-wider transition transform active:scale-95 cursor-pointer shadow-sm"
                         >
                           Stand
                         </button>
                         <button
                           onClick={handleDoubleDown}
                           disabled={balance < bet}
-                          className="px-6 py-3 bg-amber-500/10 border border-amber-500/20 text-amber-500 hover:bg-amber-500 hover:text-black hover:border-amber-500 disabled:bg-neutral-900 disabled:text-neutral-600 disabled:border-transparent font-mono font-bold uppercase tracking-wider transition transform active:scale-95 cursor-pointer"
+                          className="px-6 py-3 bg-amber-50 border border-amber-500/20 text-amber-700 hover:bg-amber-600 hover:text-white hover:border-amber-600 disabled:bg-neutral-50 disabled:text-neutral-400 disabled:border-transparent font-mono font-bold uppercase tracking-wider transition transform active:scale-95 cursor-pointer"
                           title="Melipatgandakan taruhan untuk membagi tepat satu kartu"
                         >
                           Double
@@ -735,7 +735,7 @@ export default function BlackjackGame() {
                     {status === "RESOLUTION" && (
                       <button
                         onClick={startNextRound}
-                        className="px-8 py-3 bg-amber-500 hover:bg-amber-400 text-slate-950 font-mono font-bold uppercase tracking-wider transition transform active:scale-95 cursor-pointer"
+                        className="px-8 py-3 bg-amber-600 hover:bg-amber-500 text-white font-mono font-bold uppercase tracking-wider transition transform active:scale-95 cursor-pointer shadow-md"
                       >
                         Main Lagi (New Round)
                       </button>
@@ -758,54 +758,54 @@ export default function BlackjackGame() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="absolute inset-0 bg-[#050505]/95 z-40 p-6 flex items-center justify-center overflow-y-auto"
+            className="absolute inset-0 bg-[#1c1917]/70 backdrop-blur-sm z-40 p-6 flex items-center justify-center overflow-y-auto"
           >
-            <div className="bg-[#0c0c0c] border border-amber-500/20 max-w-lg p-8 max-h-[90%] overflow-y-auto shadow-2xl relative">
-              <div className="absolute top-0 left-0 w-3 h-3 border-t border-l border-amber-500"></div>
-              <div className="absolute top-0 right-0 w-3 h-3 border-t border-r border-amber-500"></div>
-              <div className="absolute bottom-0 left-0 w-3 h-3 border-b border-l border-amber-500"></div>
-              <div className="absolute bottom-0 right-0 w-3 h-3 border-b border-r border-amber-500"></div>
+            <div className="bg-white border border-stone-250 max-w-lg p-8 max-h-[90%] overflow-y-auto shadow-2xl relative">
+              <div className="absolute top-0 left-0 w-3 h-3 border-t border-l border-amber-600"></div>
+              <div className="absolute top-0 right-0 w-3 h-3 border-t border-r border-amber-600"></div>
+              <div className="absolute bottom-0 left-0 w-3 h-3 border-b border-l border-amber-600"></div>
+              <div className="absolute bottom-0 right-0 w-3 h-3 border-b border-r border-amber-600"></div>
 
               <div className="flex justify-between items-center mb-6">
                 <div className="flex items-center gap-2 font-cinzel">
-                  <BookOpen className="w-4 h-4 text-amber-500" />
-                  <h3 className="text-xs uppercase tracking-[0.2em] font-semibold text-slate-100">PANDUAN BLACKJACK</h3>
+                  <BookOpen className="w-4 h-4 text-amber-600" />
+                  <h3 className="text-xs uppercase tracking-[0.2em] font-bold text-stone-900">PANDUAN BLACKJACK</h3>
                 </div>
                 <button 
                   onClick={() => { soundEffects.playClick(); setShowRules(false); }}
-                  className="text-slate-500 hover:text-amber-500 font-mono text-[11px] uppercase tracking-wider transition cursor-pointer"
+                  className="text-stone-500 hover:text-amber-600 font-mono text-[11px] uppercase tracking-wider transition cursor-pointer"
                 >
                   [tutup]
                 </button>
               </div>
 
-              <div className="space-y-4 text-xs text-slate-400 leading-relaxed font-serif italic text-left">
+              <div className="space-y-4 text-xs text-stone-650 leading-relaxed font-serif italic text-left">
                 <p>
-                  Tujuan utama Anda adalah mendapatkan kombinasi kartu dengan total nilai sedekat mungkin ke angka <strong className="text-amber-400 not-italic">21</strong> tanpa melebihinya (Bust).
+                  Tujuan utama Anda adalah mendapatkan kombinasi kartu dengan total nilai sedekat mungkin ke angka <strong className="text-amber-650 not-italic font-bold">21</strong> tanpa melebihinya (Bust).
                 </p>
-                <ul className="list-disc list-inside space-y-1 text-slate-400 italic">
-                  <li>Kartu berangka <strong className="text-white not-italic">2 - 10</strong> memiliki nilai sesuai nominal kartunya.</li>
-                  <li>Kartu wajah (<strong className="text-white not-italic">J, Q, K</strong>) masing-masing bernilai <strong className="text-white not-italic">10</strong>.</li>
-                  <li>Kartu Ace (<strong className="text-white not-italic">A</strong>) bernilai <strong className="text-white not-italic">11 atau 1</strong>, menyesuaikan keadaan tangan secara otomatis agar tidak Bust.</li>
+                <ul className="list-disc list-inside space-y-1 text-stone-600 italic">
+                  <li>Kartu berangka <strong className="text-stone-900 not-italic font-bold">2 - 10</strong> memiliki nilai sesuai nominal kartunya.</li>
+                  <li>Kartu wajah (<strong className="text-stone-900 not-italic font-bold">J, Q, K</strong>) masing-masing bernilai <strong className="text-stone-900 not-italic font-bold">10</strong>.</li>
+                  <li>Kartu Ace (<strong className="text-stone-900 not-italic font-bold">A</strong>) bernilai <strong className="text-stone-900 not-italic font-bold">11 atau 1</strong>, menyesuaikan keadaan tangan secara otomatis agar tidak Bust.</li>
                 </ul>
-                <h4 className="font-semibold text-white tracking-widest uppercase text-[10px] font-mono mt-4">PILIHAN TINDAKAN:</h4>
-                <ul className="list-disc list-inside space-y-1 text-slate-400">
+                <h4 className="font-semibold text-stone-900 tracking-widest uppercase text-[10px] font-mono mt-4">PILIHAN TINDAKAN:</h4>
+                <ul className="list-disc list-inside space-y-1 text-stone-600">
                   <li><strong>Hit:</strong> Menarik satu kartu tambahan dari dek sepatu.</li>
                   <li><strong>Stand:</strong> Menyelesaikan giliran dan tidak menambah kartu lagi.</li>
-                  <li><strong>Double Down:</strong> Melipatgandakan nilai taruhan aktif Anda, menarik tepat <strong className="text-white not-italic">satu</strong> kartu tambahan, dan otomatis Stand.</li>
+                  <li><strong>Double Down:</strong> Melipatgandakan nilai taruhan aktif Anda, menarik tepat <strong className="text-stone-900 not-italic font-bold">satu</strong> kartu tambahan, dan otomatis Stand.</li>
                 </ul>
-                <h4 className="font-semibold text-white tracking-widest uppercase text-[10px] font-mono mt-4">ATURAN DEALER:</h4>
+                <h4 className="font-semibold text-stone-900 tracking-widest uppercase text-[10px] font-mono mt-4">ATURAN DEALER:</h4>
                 <p>
-                  Dealer wajib menarik kartu terus menerus jika total nilainya di bawah <strong className="text-amber-400 not-italic">17</strong>, dan wajib bertahan (Stand) segera setelah bernilai <strong className="text-amber-400 not-italic">17 atau lebih</strong>.
+                  Dealer wajib menarik kartu terus menerus jika total nilainya di bawah <strong className="text-amber-650 not-italic font-bold">17</strong>, dan wajib bertahan (Stand) segera setelah bernilai <strong className="text-amber-650 not-italic font-bold">17 atau lebih</strong>.
                 </p>
-                <div className="bg-amber-500/[0.03] border border-amber-500/10 p-4 text-[11px] text-amber-500/80">
+                <div className="bg-amber-500/[0.04] border border-amber-500/20 p-4 text-[11px] text-amber-800 leading-normal not-italic">
                   ⚡ <strong>Blackjack Perk:</strong> Mendapatkan langsung kombinasi kartu bernilai 21 di pembagian pertama bernilai <strong>Blackjack</strong>, memberikan bayaran fantastis <strong>3:2</strong>!
                 </div>
               </div>
 
               <button
                 onClick={() => { soundEffects.playClick(); setShowRules(false); }}
-                className="mt-6 w-full py-2.5 bg-[#050505] border border-amber-500/30 text-amber-500 hover:bg-amber-500 hover:text-black hover:border-amber-500 text-xs font-semibold uppercase tracking-widest transition cursor-pointer"
+                className="mt-6 w-full py-2.5 bg-stone-50 border border-stone-300 hover:border-amber-600 text-stone-800 hover:bg-amber-600 hover:text-white text-xs font-semibold uppercase tracking-widest transition cursor-pointer"
               >
                 Dipahami
               </button>

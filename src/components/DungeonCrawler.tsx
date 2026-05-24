@@ -415,40 +415,40 @@ export default function DungeonCrawler() {
   const getCardIconStyle = (type: DungeonCardType) => {
     switch (type) {
       case DungeonCardType.MONSTER:
-        return { bg: "bg-[#090909] text-rose-500 border-rose-950 hover:border-rose-700/80 hover:bg-neutral-900/45", icon: <Skull className="w-5 h-5 text-rose-500/80" /> };
+        return { bg: "bg-white text-rose-600 border-rose-200 hover:border-rose-400 hover:bg-rose-50/20", icon: <Skull className="w-5 h-5 text-rose-500" /> };
       case DungeonCardType.WEAPON:
-        return { bg: "bg-[#090909] text-sky-400 border-[#222] hover:border-sky-500/80 hover:bg-neutral-900/45", icon: <Sword className="w-5 h-5 text-sky-400/80" /> };
+        return { bg: "bg-white text-sky-700 border-stone-200 hover:border-sky-500 hover:bg-sky-50/20", icon: <Sword className="w-5 h-5 text-sky-600" /> };
       case DungeonCardType.SHIELD:
-        return { bg: "bg-[#090909] text-indigo-400 border-[#222] hover:border-indigo-500/80 hover:bg-neutral-900/45", icon: <Shield className="w-5 h-5 text-indigo-400/80" /> };
+        return { bg: "bg-white text-indigo-700 border-stone-200 hover:border-indigo-500 hover:bg-indigo-50/20", icon: <Shield className="w-5 h-5 text-indigo-600" /> };
       case DungeonCardType.POTION:
-        return { bg: "bg-[#090909] text-emerald-400 border-emerald-950 hover:border-emerald-500/80 hover:bg-neutral-900/45", icon: <Heart className="w-5 h-5 text-emerald-400/80" /> };
+        return { bg: "bg-white text-emerald-600 border-emerald-200 hover:border-emerald-500 hover:bg-emerald-50/20", icon: <Heart className="w-5 h-5 text-emerald-500" /> };
       case DungeonCardType.GOLD:
-        return { bg: "bg-[#090909] text-amber-500 border-amber-950 hover:border-amber-500/80 hover:bg-neutral-900/45", icon: <Coins className="w-5 h-5 text-amber-500/80" /> };
+        return { bg: "bg-white text-amber-600 border-amber-200 hover:border-amber-500 hover:bg-amber-50/20", icon: <Coins className="w-5 h-5 text-amber-500" /> };
     }
   };
 
   return (
-    <div className="w-full flex flex-col min-h-[580px] bg-[#0c0c0c] rounded-none border border-amber-500/20 shadow-card overflow-hidden relative select-none">
+    <div className="w-full flex flex-col min-h-[580px] bg-white rounded-none border border-stone-200 shadow-card overflow-hidden relative select-none">
       
       {/* HEADER CONTROLS */}
-      <div className="flex justify-between items-center px-6 py-4 border-b border-white/5 bg-[#080808] relative z-10">
+      <div className="flex justify-between items-center px-6 py-4 border-b border-stone-200 bg-[#faf9f5] relative z-10">
         <div className="flex items-center gap-2.5 font-cinzel">
           <div className="w-2.5 h-2.5 bg-rose-600 rotate-45"></div>
-          <span className="text-xs uppercase tracking-[0.25em] font-semibold text-slate-100 font-bold">Void Dungeon Crawler</span>
+          <span className="text-xs uppercase tracking-[0.25em] font-bold text-stone-900">Void Dungeon Crawler</span>
         </div>
         
         <div className="flex items-center gap-3">
           <button
             onClick={toggleMute}
-            className="p-2 text-slate-400 hover:text-amber-500 bg-white/[0.02] border border-white/5 hover:border-amber-500/30 transition cursor-pointer"
+            className="p-2 text-stone-600 hover:text-amber-700 bg-white border border-stone-250 hover:border-amber-600 transition cursor-pointer"
             title={isMuted ? "Aktifkan suara" : "Senyap"}
           >
-            {isMuted ? <VolumeX className="w-4 h-4 text-red-400" /> : <Volume2 className="w-4 h-4" />}
+            {isMuted ? <VolumeX className="w-4 h-4 text-red-650" /> : <Volume2 className="w-4 h-4" />}
           </button>
           
           <button
             onClick={() => { soundEffects.playClick(); setShowHelper(!showHelper); }}
-            className="p-2 text-slate-400 hover:text-amber-500 bg-white/[0.02] border border-white/5 hover:border-amber-500/30 transition cursor-pointer"
+            className="p-2 text-stone-600 hover:text-amber-700 bg-white border border-stone-250 hover:border-amber-600 transition cursor-pointer"
             title="Sintaks Petunjuk"
           >
             <HelpCircle className="w-4 h-4" />
@@ -456,31 +456,31 @@ export default function DungeonCrawler() {
         </div>
       </div>
 
-      <div className="flex-1 flex flex-col lg:flex-row divide-y lg:divide-y-0 lg:divide-x divide-slate-800/80 relative">
+      <div className="flex-1 flex flex-col lg:flex-row divide-y lg:divide-y-0 lg:divide-x divide-stone-200 relative">
         
         {/* CHARACTER HERO HUD (LEFT SIDEBAR) */}
-        <div className="w-full lg:w-72 bg-[#080808] p-6 flex flex-col justify-between">
+        <div className="w-full lg:w-72 bg-[#faf9f5] p-6 flex flex-col justify-between">
           <div>
             {/* LEVEL & XP STATUS */}
-            <div className="p-4 bg-[#0c0c0c] border border-white/5 mb-5 relative overflow-hidden">
+            <div className="p-4 bg-white border border-stone-200 shadow-sm mb-5 relative overflow-hidden">
               <div className="absolute top-0 right-0 p-1.5 opacity-5">
-                <User className="w-16 h-16 text-white" />
+                <User className="w-16 h-16 text-stone-800" />
               </div>
               
               <div className="flex justify-between items-center mb-1">
-                <span className="text-[9px] uppercase font-mono text-slate-500 tracking-wider">PENJELAJAH AKTIF</span>
-                <span className="font-mono text-[9px] font-bold text-amber-500 bg-amber-500/10 border border-amber-500/20 px-2 py-0.5">LVL {player.level}</span>
+                <span className="text-[9px] uppercase font-mono text-stone-500 tracking-wider">PENJELAJAH AKTIF</span>
+                <span className="font-mono text-[9px] font-bold text-amber-700 bg-amber-50 border border-amber-300 px-2 py-0.5 animate-pulse">LVL {player.level}</span>
               </div>
-              <h4 className="font-cinzel text-xs uppercase tracking-widest text-white tracking-tight mb-3">GRAND ARBITER HERO</h4>
+              <h4 className="font-cinzel text-xs uppercase tracking-widest text-stone-900 font-bold mb-3">GRAND ARBITER HERO</h4>
 
               {/* XP progress bar */}
-              <div className="text-[9px] text-slate-500 font-mono mb-1.5 flex justify-between">
+              <div className="text-[9px] text-stone-500 font-mono mb-1.5 flex justify-between">
                 <span>PENGALAMAN (XP):</span>
                 <span>{player.xp}/{player.xpToNextLevel}</span>
               </div>
-              <div className="w-full h-1 bg-white/5 overflow-hidden">
+              <div className="w-full h-1 bg-stone-200 overflow-hidden">
                 <div 
-                  className="h-full bg-amber-500 transition-all duration-300"
+                  className="h-full bg-amber-650 transition-all duration-300"
                   style={{ width: `${Math.min(100, (player.xp / player.xpToNextLevel) * 100)}%` }}
                 ></div>
               </div>
@@ -488,57 +488,57 @@ export default function DungeonCrawler() {
 
             {/* LIVE HP & MAX HP STAT */}
             <div className="space-y-3">
-              <span className="text-[10px] font-mono text-slate-500 tracking-widest uppercase block">INDIKATOR VITAL</span>
+              <span className="text-[10px] font-mono text-stone-550 tracking-widest uppercase block">INDIKATOR VITAL</span>
               
               {/* HP Meter */}
-              <div className="bg-[#0c0c0c] border border-white/5 p-4">
+              <div className="bg-white border border-stone-205 p-4 shadow-sm">
                 <div className="flex justify-between items-center mb-2">
-                  <div className="flex items-center gap-1.5 font-semibold text-rose-500 text-xs">
-                    <Heart className="w-3.5 h-3.5 fill-rose-600/60 text-rose-500 animate-pulse" />
+                  <div className="flex items-center gap-1.5 font-semibold text-rose-600 text-xs">
+                    <Heart className="w-3.5 h-3.5 fill-rose-600/40 text-rose-600" />
                     <span className="font-mono text-[10px] uppercase tracking-wider">VITALITY (HP)</span>
                   </div>
-                  <span className="font-mono text-xs font-bold text-white">{player.hp}/{player.maxHp}</span>
+                  <span className="font-mono text-xs font-bold text-stone-850">{player.hp}/{player.maxHp}</span>
                 </div>
-                <div className="w-full h-1.5 bg-black/50 overflow-hidden border border-white/5">
+                <div className="w-full h-1.5 bg-stone-100 overflow-hidden border border-stone-200">
                   <div 
-                    className="h-full bg-gradient-to-r from-rose-800 to-rose-600 transition-all duration-300"
+                    className="h-full bg-gradient-to-r from-rose-700 to-rose-505 transition-all duration-300"
                     style={{ width: `${Math.max(0, (player.hp / player.maxHp) * 100)}%` }}
                   ></div>
                 </div>
               </div>
 
               {/* Weapon Power Indicator */}
-              <div className="bg-[#0c0c0c] border border-white/5 p-4 flex items-center justify-between">
-                <div className="flex items-center gap-2 text-[10px] uppercase tracking-wider text-slate-400 font-mono">
-                  <Sword className="w-3.5 h-3.5 text-amber-500/80" />
+              <div className="bg-white border border-stone-205 p-4 flex items-center justify-between shadow-sm">
+                <div className="flex items-center gap-2 text-[10px] uppercase tracking-wider text-stone-600 font-mono">
+                  <Sword className="w-3.5 h-3.5 text-amber-600" />
                   <span>ATTACK DECK</span>
                 </div>
                 <div className="text-right">
-                  <div className="font-mono text-xs font-bold text-slate-200">DMG +{player.weaponPower}</div>
+                  <div className="font-mono text-xs font-bold text-stone-850">DMG +{player.weaponPower}</div>
                   {player.weaponPower > 0 && (
-                    <div className="text-[9px] text-slate-500 font-mono mt-0.5">Daya: {player.weaponDurability}X tebas</div>
+                    <div className="text-[9px] text-stone-500 font-mono mt-0.5">Daya: {player.weaponDurability}X tebas</div>
                   )}
                 </div>
               </div>
 
               {/* Shield Defense Block Indicator */}
-              <div className="bg-[#0c0c0c] border border-white/5 p-4 flex items-center justify-between">
-                <div className="flex items-center gap-2 text-[10px] uppercase tracking-wider text-slate-400 font-mono">
-                  <Shield className="w-3.5 h-3.5 text-sky-500/80" />
+              <div className="bg-white border border-stone-205 p-4 flex items-center justify-between shadow-sm">
+                <div className="flex items-center gap-2 text-[10px] uppercase tracking-wider text-stone-600 font-mono">
+                  <Shield className="w-3.5 h-3.5 text-sky-655" />
                   <span>SHIELD VALUE</span>
                 </div>
-                <div className="font-mono text-xs font-bold text-sky-400">
+                <div className="font-mono text-xs font-bold text-sky-700">
                   +{player.shieldBlock} BLK
                 </div>
               </div>
 
               {/* Gold Counter */}
-              <div className="bg-[#0c0c0c] border border-white/5 p-4 flex items-center justify-between">
-                <div className="flex items-center gap-2 text-[10px] uppercase tracking-wider text-slate-400 font-mono">
-                  <Coins className="w-3.5 h-3.5 text-amber-500/85" />
+              <div className="bg-white border border-stone-205 p-4 flex items-center justify-between shadow-sm">
+                <div className="flex items-center gap-2 text-[10px] uppercase tracking-wider text-stone-600 font-mono">
+                  <Coins className="w-3.5 h-3.5 text-amber-605" />
                   <span>KUMPULAN EMAS</span>
                 </div>
-                <div className="font-mono text-xs font-bold text-amber-500">
+                <div className="font-mono text-xs font-bold text-amber-650">
                   {player.gold} / 500g
                 </div>
               </div>
@@ -547,30 +547,30 @@ export default function DungeonCrawler() {
           </div>
 
           {/* SISA DEK BAR */}
-          <div className="mt-6 pt-5 border-t border-white/5">
+          <div className="mt-6 pt-5 border-t border-stone-200">
             <div className="flex justify-between items-center text-[10px] font-mono mb-2.5">
-              <span className="text-slate-500">SISA DEK TANTANGAN:</span>
-              <span className="text-amber-500 font-bold">{deck.length} KARTU</span>
+              <span className="text-stone-500">SISA DEK TANTANGAN:</span>
+              <span className="text-amber-655 font-bold">{deck.length} KARTU</span>
             </div>
             
             <button
               onClick={handleRefillGrid}
               disabled={deck.length === 0}
-              className="w-full py-2.5 bg-[#0c0c0c] border border-white/5 hover:border-amber-500/30 disabled:opacity-30 text-slate-300 hover:text-white text-xs font-semibold font-mono uppercase tracking-wider transition flex items-center justify-center gap-1.5 cursor-pointer"
+              className="w-full py-2.5 bg-white border border-stone-300 hover:border-amber-600 disabled:opacity-30 text-stone-700 hover:text-amber-700 hover:bg-stone-50 text-xs font-semibold font-mono uppercase tracking-wider transition flex items-center justify-center gap-1.5 cursor-pointer shadow-sm"
             >
-              <RefreshCw className="w-3 h-3 text-amber-500" />
+              <RefreshCw className="w-3 h-3 text-amber-600" />
               <span>Kocok Baru Grid</span>
             </button>
           </div>
         </div>
 
         {/* 3x3 CARDS ARENA AREA */}
-        <div className="flex-1 p-6 bg-[#050505] relative overflow-hidden flex flex-col justify-between grid-bg-dots">
+        <div className="flex-1 p-6 bg-[#fbfaf6] relative overflow-hidden flex flex-col justify-between grid-bg-dots">
           
           <div className="flex justify-between items-center mb-4 relative z-10">
-            <span className="text-[10px] uppercase tracking-[0.2em] font-mono text-slate-500">Arena Penjelajahan (3x3 Grid)</span>
-            <div className="text-[10px] uppercase font-mono tracking-widest text-[#d97706] bg-amber-500/5 border border-amber-500/20 px-3 py-1 flex items-center gap-1.5">
-              <Award className="w-3.5 h-3.5 text-amber-500" />
+            <span className="text-[10px] uppercase tracking-[0.2em] font-mono text-stone-500">Arena Penjelajahan (3x3 Grid)</span>
+            <div className="text-[10px] uppercase font-mono tracking-widest text-[#d97706] bg-white border border-amber-500/30 px-3 py-1 flex items-center gap-1.5 shadow-sm">
+              <Award className="w-3.5 h-3.5 text-amber-600" />
               <span>SKOR HERO: {player.score}</span>
             </div>
           </div>
@@ -582,9 +582,9 @@ export default function DungeonCrawler() {
                 return (
                   <div 
                     key={`empty_${idx}`}
-                    className="aspect-[3/4.2] rounded-none border border-dashed border-white/5 bg-black/40 flex flex-col items-center justify-center text-center opacity-40 transition"
+                    className="aspect-[3/4.2] rounded-none border border-dashed border-stone-250 bg-stone-100 flex flex-col items-center justify-center text-center opacity-70 transition"
                   >
-                    <span className="text-[9px] uppercase tracking-wider font-mono text-slate-600">Terbuka</span>
+                    <span className="text-[9px] uppercase tracking-wider font-mono text-stone-500">Terbuka</span>
                   </div>
                 );
               }
@@ -600,18 +600,18 @@ export default function DungeonCrawler() {
                   whileHover={{ scale: 1.04, translateY: -2 }}
                   whileTap={{ scale: 0.97 }}
                   onClick={() => handleCardInteraction(idx)}
-                  className={`aspect-[3/4.2] cursor-pointer rounded-none border p-2.5 flex flex-col justify-between shadow-card transition-all relative overflow-hidden group select-none ${visuals?.bg}`}
+                  className={`aspect-[3/4.2] cursor-pointer rounded-none border p-2.5 flex flex-col justify-between shadow-sm transition-all relative overflow-hidden group select-none ${visuals?.bg}`}
                 >
                   {/* Subtle Light effect */}
-                  <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/[0.02] to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                  <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-[#d97706]/[0.02] to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
                   
                   {/* Card type icon & quantity indicator */}
                   <div className="flex justify-between items-center relative z-10">
-                    <span className="p-1 border border-white/5 bg-[#050505] text-slate-400">
+                    <span className="p-1 border border-stone-150 bg-stone-50 text-stone-600">
                       {visuals?.icon}
                     </span>
                     
-                    <span className="font-mono text-[9px] font-bold tracking-widest px-1.5 py-0.5 border border-white/10 bg-black/60 leading-none">
+                    <span className="font-mono text-[9px] font-bold tracking-widest px-1.5 py-0.5 border border-stone-250 bg-white leading-none text-stone-900 shadow-sm">
                       {card.type === DungeonCardType.GOLD ? `+${card.value}` : null}
                       {card.type === DungeonCardType.WEAPON ? `ATK ${card.value}` : null}
                       {card.type === DungeonCardType.SHIELD ? `BLK ${card.value}` : null}
@@ -622,23 +622,23 @@ export default function DungeonCrawler() {
 
                   {/* Body Content title & lore */}
                   <div className="mt-2 text-left flex-1 flex flex-col justify-end relative z-10">
-                    <h5 className="text-[10px] sm:text-[11px] font-semibold text-slate-100 tracking-wider font-cinzel line-clamp-1 uppercase group-hover:text-amber-500 transition-colors">
+                    <h5 className="text-[10px] sm:text-[11px] font-semibold text-stone-900 tracking-wider font-cinzel line-clamp-1 uppercase group-hover:text-amber-600 transition-colors">
                       {card.title}
                     </h5>
                     
-                    <p className="text-[8.5px] text-slate-500 font-serif leading-relaxed italic line-clamp-2 mt-0.5 group-hover:text-slate-300 transition-colors">
+                    <p className="text-[8.5px] text-stone-500 font-serif leading-relaxed italic line-clamp-2 mt-0.5 group-hover:text-stone-700 transition-colors">
                       {card.flavor}
                     </p>
                   </div>
 
                   {/* Background specific watermarks */}
-                  <div className="absolute -bottom-1 -right-1 opacity-2 group-hover:opacity-5 transition-opacity">
+                  <div className="absolute -bottom-1 -right-1 opacity-5 group-hover:opacity-10 transition-opacity text-stone-300">
                     {visuals?.icon && React.cloneElement(visuals.icon as React.ReactElement, { className: "w-12 h-12" })}
                   </div>
 
                   {/* Monster health damage bar */}
                   {card.type === DungeonCardType.MONSTER && card.maxValue && (
-                    <div className="w-full bg-black h-1 overflow-hidden mt-1.5 border border-white/5">
+                    <div className="w-full bg-stone-100 h-1 overflow-hidden mt-1.5 border border-stone-200">
                       <div 
                         className="h-full bg-rose-600 transition-all duration-300"
                         style={{ width: `${Math.max(0, (card.value / card.maxValue) * 100)}%` }}
@@ -651,17 +651,17 @@ export default function DungeonCrawler() {
           </div>
 
           {/* COMBAT HISTORY LOGS PANEL */}
-          <div className="mt-4 pt-3.5 border-t border-white/5">
-            <div className="flex items-center gap-1.5 text-slate-500 font-mono text-[9px] uppercase mb-1.5">
-              <Terminal className="w-3.5 h-3.5 text-amber-500" />
+          <div className="mt-4 pt-3.5 border-t border-stone-200">
+            <div className="flex items-center gap-1.5 text-stone-555 font-mono text-[9px] uppercase mb-1.5">
+              <Terminal className="w-3.5 h-3.5 text-amber-600" />
               <span>Daftar Kronologi Pertempuran:</span>
             </div>
             
-            <div className="bg-[#040404] p-3.5 border border-white/5 h-24 overflow-y-auto font-mono text-[10px] space-y-1.5 text-left text-slate-400">
+            <div className="bg-[#fafaf7] p-3.5 border border-stone-200 h-24 overflow-y-auto font-mono text-[10px] space-y-1.5 text-left text-stone-650 shadow-inner">
               {historyLogs.map((log, lidx) => (
                 <div key={lidx} className="flex gap-1.5 items-start">
-                  <ChevronRight className="w-3 h-3 text-amber-500 mt-0.5 shrink-0" />
-                  <span className={`${lidx === 0 ? "text-amber-300 font-semibold" : ""}`}>{log}</span>
+                  <ChevronRight className="w-3 h-3 text-amber-600 mt-0.5 shrink-0" />
+                  <span className={`${lidx === 0 ? "text-amber-700 font-bold" : ""}`}>{log}</span>
                 </div>
               ))}
             </div>
@@ -677,57 +677,57 @@ export default function DungeonCrawler() {
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            className="absolute inset-0 bg-black/95 z-40 flex flex-col items-center justify-center p-6 text-center"
+            className="absolute inset-0 bg-[#1c1917]/75 backdrop-blur-sm z-40 flex flex-col items-center justify-center p-6 text-center"
           >
             <motion.div
               initial={{ scale: 0.95, y: 15 }}
               animate={{ scale: 1, y: 0 }}
-              className="bg-[#0c0c0c] border border-amber-500/20 rounded-none p-8 max-w-sm shadow-card text-center relative"
+              className="bg-white border border-stone-250 rounded-none p-8 max-w-sm shadow-2xl text-center relative"
             >
               {/* Corner decorative borders */}
-              <div className="absolute top-0 right-0 w-8 h-8 border-t border-r border-amber-500/50"></div>
-              <div className="absolute bottom-0 left-0 w-8 h-8 border-b border-l border-amber-500/50"></div>
+              <div className="absolute top-0 right-0 w-8 h-8 border-t border-r border-amber-600"></div>
+              <div className="absolute bottom-0 left-0 w-8 h-8 border-b border-l border-amber-600"></div>
 
               {isVictory ? (
                 <>
-                  <div className="w-14 h-14 bg-amber-500/10 border border-amber-500 flex items-center justify-center mx-auto mb-4 text-amber-400">
+                  <div className="w-14 h-14 bg-amber-50 border border-amber-400 flex items-center justify-center mx-auto mb-4 text-amber-655">
                     <Award className="w-7 h-7" />
                   </div>
-                  <h3 className="font-cinzel tracking-widest text-lg text-white mb-2">PENJELAJAHAN SELESAI</h3>
-                  <p className="text-slate-400 text-[11px] leading-relaxed font-serif italic mb-6">
+                  <h3 className="font-cinzel tracking-widest text-lg text-stone-900 font-bold mb-2">PENJELAJAHAN SELESAI</h3>
+                  <p className="text-stone-600 text-[11px] leading-relaxed font-serif italic mb-6">
                     Luar biasa! Anda melaju menyapu semua musuh dungeon dan memenangkan tantangan permainan pertarungan kartu!
                   </p>
                 </>
               ) : (
                 <>
-                  <div className="w-14 h-14 bg-rose-500/10 border border-rose-500/40 flex items-center justify-center mx-auto mb-4 text-rose-500 animate-pulse">
+                  <div className="w-14 h-14 bg-rose-50 border border-rose-300 flex items-center justify-center mx-auto mb-4 text-rose-600">
                     <Skull className="w-7 h-7" />
                   </div>
-                  <h3 className="font-cinzel tracking-widest text-lg text-white mb-2">ANDA TELAH GUGUR</h3>
-                  <p className="text-slate-400 text-[11px] leading-relaxed font-serif italic mb-6">
-                    Kekuatan monster di arena berhasil melumpuhkan nyawa Anda pada level <span className="text-rose-400 font-bold font-mono">{player.level}</span>. Jangan menyerah penjelajah!
+                  <h3 className="font-cinzel tracking-widest text-lg text-stone-900 font-bold mb-2">ANDA TELAH GUGUR</h3>
+                  <p className="text-stone-600 text-[11px] leading-relaxed font-serif italic mb-6">
+                    Kekuatan monster di arena berhasil melumpuhkan nyawa Anda pada level <span className="text-rose-600 font-bold font-mono">{player.level}</span>. Jangan menyerah penjelajah!
                   </p>
                 </>
               )}
 
-              <div className="bg-black/40 p-4 border border-white/5 text-[11px] font-mono space-y-2 mb-6 text-left">
+              <div className="bg-stone-50 p-4 border border-stone-200 text-[11px] font-mono space-y-2 mb-6 text-left">
                 <div className="flex justify-between">
-                  <span className="text-slate-500">Hasil Skor Akhir:</span>
-                  <span className="text-amber-400 font-bold">{player.score} pts</span>
+                  <span className="text-stone-500">Hasil Skor Akhir:</span>
+                  <span className="text-amber-700 font-bold">{player.score} pts</span>
                 </div>
                 <div className="flex justify-between">
-                  <span className="text-slate-500">Monster Dikalahkan:</span>
-                  <span className="text-white font-bold">{player.monstersDefeated} ekor</span>
+                  <span className="text-stone-500">Monster Dikalahkan:</span>
+                  <span className="text-stone-800 font-bold">{player.monstersDefeated} ekor</span>
                 </div>
                 <div className="flex justify-between">
-                  <span className="text-slate-500">Koin Dikumpulkan:</span>
-                  <span className="text-white font-bold">{player.gold} gold</span>
+                  <span className="text-stone-500">Koin Dikumpulkan:</span>
+                  <span className="text-stone-800 font-bold">{player.gold} gold</span>
                 </div>
               </div>
 
               <button
                 onClick={handleStartGame}
-                className="w-full py-3 bg-amber-600 hover:bg-amber-500 text-black text-xs font-mono font-bold uppercase tracking-widest transition duration-150 cursor-pointer"
+                className="w-full py-3 bg-amber-600 hover:bg-amber-500 text-white text-xs font-mono font-bold uppercase tracking-widest transition duration-150 cursor-pointer shadow-md"
               >
                 Mulai Petualangan Baru
               </button>
@@ -743,69 +743,69 @@ export default function DungeonCrawler() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="absolute inset-0 bg-black/90 z-40 p-6 flex items-center justify-center"
+            className="absolute inset-0 bg-[#1c1917]/75 backdrop-blur-sm z-40 p-6 flex items-center justify-center"
           >
-            <div className="bg-[#0c0c0c] border border-amber-500/20 max-w-md p-6 max-h-[90%] overflow-y-auto shadow-card text-left relative">
+            <div className="bg-white border border-stone-250 max-w-md p-6 max-h-[90%] overflow-y-auto shadow-2xl text-left relative">
               {/* Decorative Corners */}
-              <div className="absolute top-0 right-0 w-8 h-8 border-t border-r border-amber-500/50"></div>
-              <div className="absolute bottom-0 left-0 w-8 h-8 border-b border-l border-amber-500/50"></div>
+              <div className="absolute top-0 right-0 w-8 h-8 border-t border-r border-amber-600"></div>
+              <div className="absolute bottom-0 left-0 w-8 h-8 border-b border-l border-amber-600"></div>
 
               <div className="flex justify-between items-center mb-5 relative z-10">
                 <div className="flex items-center gap-2">
-                  <HelpCircle className="w-4 h-4 text-amber-500" />
-                  <h3 className="font-cinzel uppercase tracking-widest text-xs text-slate-100 font-bold">Panduan Dungeon Crawler</h3>
+                  <HelpCircle className="w-4 h-4 text-amber-600" />
+                  <h3 className="font-cinzel uppercase tracking-widest text-xs text-stone-900 font-bold">Panduan Dungeon Crawler</h3>
                 </div>
                 <button 
                   onClick={() => { soundEffects.playClick(); setShowHelper(false); }}
-                  className="text-slate-500 hover:text-amber-500 text-[10px] uppercase font-mono tracking-widest transition cursor-pointer"
+                  className="text-stone-400 hover:text-amber-600 text-[10px] uppercase font-mono tracking-widest transition cursor-pointer"
                 >
                   [Tutup]
                 </button>
               </div>
 
-              <div className="space-y-4 text-[11px] text-slate-400 leading-relaxed font-sans relative z-10">
-                <p className="font-serif italic text-[12px] text-slate-300">
+              <div className="space-y-4 text-[11px] text-stone-600 leading-relaxed font-sans relative z-10">
+                <p className="font-serif italic text-[12px] text-stone-800">
                   Permainan ini dimainkan di atas <strong>grid 3x3 pertemuan</strong>. Ambil kartu untuk melaju menyelidiki sisa deck dungeon Anda secara bertahap!
                 </p>
                 
                 <div className="space-y-2.5">
-                  <div className="flex gap-2 items-start bg-black/40 p-2.5 border border-white/5">
-                    <span className="text-rose-500">💀</span>
+                  <div className="flex gap-2 items-start bg-stone-50 p-2.5 border border-stone-200">
+                    <span className="text-rose-600">💀</span>
                     <div>
-                      <strong className="text-rose-400">Monster (Kartu Merah):</strong> Memilih musuh akan menyerangnya. Sisa HP monster akan mendatangkan kerusakan langsung ke HP Anda setelah dikurangi status persenjataan aktif Anda.
+                      <strong className="text-rose-700">Monster (Kartu Merah):</strong> Memilih musuh akan menyerangnya. Sisa HP monster akan mendatangkan kerusakan langsung ke HP Anda setelah dikurangi status persenjataan aktif Anda.
                     </div>
                   </div>
 
-                  <div className="flex gap-2 items-start bg-black/40 p-2.5 border border-white/5">
-                    <span className="text-sky-400">⚔️</span>
+                  <div className="flex gap-2 items-start bg-stone-50 p-2.5 border border-stone-200">
+                    <span className="text-sky-600">⚔️</span>
                     <div>
-                      <strong className="text-sky-400">Weapon (Kartu Biru):</strong> Melengkapi senjata meningkatkan kekuatan serang (ATK) untuk melumpuhkan HP monster terlebih dahulu secara bertahap (kuota penggunaan: 3 kali).
+                      <strong className="text-sky-700">Weapon (Kartu Biru):</strong> Melengkapi senjata meningkatkan kekuatan serang (ATK) untuk melumpuhkan HP monster terlebih dahulu secara bertahap (kuota penggunaan: 3 kali).
                     </div>
                   </div>
 
-                  <div className="flex gap-2 items-start bg-black/40 p-2.5 border border-white/5">
-                    <span className="text-indigo-400">🛡️</span>
+                  <div className="flex gap-2 items-start bg-stone-50 p-2.5 border border-stone-200">
+                    <span className="text-indigo-600">🛡️</span>
                     <div>
-                      <strong className="text-indigo-400">Shield (Kartu Indigo):</strong> Melengkapi perisai akan menambah poin Block untuk menyerap sepenuhnya ataupun sebagian kerusakan balik monster.
+                      <strong className="text-indigo-700">Shield (Kartu Indigo):</strong> Melengkapi perisai akan menambah poin Block untuk menyerap sepenuhnya ataupun sebagian kerusakan balik monster.
                     </div>
                   </div>
 
-                  <div className="flex gap-2 items-start bg-black/40 p-2.5 border border-white/5">
-                    <span className="text-emerald-400">🧪</span>
+                  <div className="flex gap-2 items-start bg-stone-50 p-2.5 border border-stone-200">
+                    <span className="text-emerald-600">🧪</span>
                     <div>
-                      <strong className="text-emerald-400">Potion & Gold (Koin):</strong> Meminum ramuan menyehatkan HP Anda, sedangkan menimbun emas meningkatkan skor akhir petualangan!
+                      <strong className="text-emerald-700">Potion & Gold (Koin):</strong> Meminum ramuan menyehatkan HP Anda, sedangkan menimbun emas meningkatkan skor akhir petualangan!
                     </div>
                   </div>
                 </div>
 
-                <div className="bg-amber-500/5 border border-amber-500/20 p-3 text-[10.5px] text-amber-500 font-serif italic">
+                <div className="bg-amber-500/[0.04] border border-amber-500/20 p-3 text-[10.5px] text-amber-900 font-serif italic">
                   💡 <strong>Kiat Pro:</strong> Kumpulkan XP dari membunuh monster untuk naik Level. Setiap naik level menyembuhkan HP Anda sepenuhnya secara gratis dan memperbesar kapasitas bar HP Anda!
                 </div>
               </div>
 
               <button
                 onClick={() => { soundEffects.playClick(); setShowHelper(false); }}
-                className="mt-6 w-full py-2.5 bg-amber-600 hover:bg-amber-500 text-black text-xs font-mono font-bold uppercase tracking-widest transition cursor-pointer"
+                className="mt-6 w-full py-2.5 bg-stone-50 border border-stone-300 hover:border-amber-600 hover:text-white text-stone-800 text-xs font-mono font-bold uppercase tracking-widest transition cursor-pointer"
               >
                 Siap Berjuang!
               </button>
