@@ -95,7 +95,7 @@ export default function App() {
       </header>
 
       {/* MAIN CONTAINER */}
-      <main className="flex-1 max-w-6xl w-full mx-auto px-6 py-10 flex flex-col justify-center relative z-10">
+      <main className={`flex-1 w-full mx-auto px-4 sm:px-6 py-6 md:py-10 flex flex-col justify-center relative z-10 transition-all duration-300 ${mode === "HUB" ? "max-w-6xl" : "max-w-7xl"}`}>
         
         <AnimatePresence mode="wait">
           

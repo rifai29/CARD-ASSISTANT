@@ -440,10 +440,10 @@ export default function BlackjackGame() {
         </div>
       </div>
 
-      <div className="flex-1 flex flex-col md:flex-row relative">
+      <div className="flex-1 flex flex-col lg:flex-row relative">
         
         {/* CASINO HUD PANELS */}
-        <div className="w-full md:w-64 bg-[#faf9f5] border-b md:border-b-0 md:border-r border-stone-200 p-6 flex flex-col justify-between">
+        <div className="w-full lg:w-72 bg-[#faf9f5] border-b lg:border-b-0 lg:border-r border-stone-200 p-6 flex flex-col justify-between shrink-0">
           <div>
             <span className="text-[10px] font-mono font-semibold text-amber-750 tracking-[0.2em] uppercase block mb-3">STATISTIK MEJA</span>
             
@@ -502,7 +502,7 @@ export default function BlackjackGame() {
               )}
             </div>
 
-            <div className="flex gap-4 justify-center min-h-[145px] items-center relative py-1">
+            <div className="flex gap-3 sm:gap-4 justify-center min-h-[145px] md:min-h-[170px] lg:min-h-[190px] xl:min-h-[220px] items-center relative py-1 flex-wrap">
               <AnimatePresence>
                 {dealerHand.map((card, idx) => (
                   <motion.div
@@ -511,7 +511,7 @@ export default function BlackjackGame() {
                     animate={{ opacity: 1, scale: 1, x: 0, y: 0, rotate: 0 }}
                     exit={{ opacity: 0, scale: 0.8 }}
                     transition={{ type: "spring", stiffness: 100, damping: 14, delay: idx * 0.15 }}
-                    className={`w-20 h-28 sm:w-24 sm:h-34 rounded-none shadow-card transition-all relative ${
+                    className={`w-20 h-28 sm:w-24 sm:h-34 md:w-[102px] md:h-[142px] xl:w-28 xl:h-40 rounded-none shadow-card transition-all relative shrink-0 ${
                       card.isRevealed 
                         ? "bg-white border border-stone-200 p-2 text-stone-900" 
                         : "bg-gradient-to-br from-amber-50 to-amber-100 border border-amber-500/40"
@@ -573,7 +573,7 @@ export default function BlackjackGame() {
 
           {/* PLAYER SIDE */}
           <div className="flex flex-col items-center mt-4">
-            <div className="flex gap-4 justify-center min-h-[145px] items-center relative py-1">
+            <div className="flex gap-3 sm:gap-4 justify-center min-h-[145px] md:min-h-[170px] lg:min-h-[190px] xl:min-h-[220px] items-center relative py-1 flex-wrap">
               <AnimatePresence>
                 {playerHand.map((card, idx) => (
                   <motion.div
@@ -582,7 +582,7 @@ export default function BlackjackGame() {
                     animate={{ opacity: 1, scale: 1, x: 0, y: 0, rotate: 0 }}
                     exit={{ opacity: 0, scale: 0.8 }}
                     transition={{ type: "spring", stiffness: 100, damping: 14, delay: idx * 0.15 }}
-                    className="w-20 h-28 sm:w-24 sm:h-34 rounded-none shadow-card bg-white border border-stone-200 p-2 text-stone-900 transition-all cursor-default"
+                    className="w-20 h-28 sm:w-24 sm:h-34 md:w-[102px] md:h-[142px] xl:w-28 xl:h-40 rounded-none shadow-card bg-white border border-stone-200 p-2 text-stone-900 transition-all cursor-default shrink-0"
                   >
                     <div className="h-full flex flex-col justify-between font-mono font-bold">
                       <div className="text-xs self-start leading-none flex flex-col items-start">

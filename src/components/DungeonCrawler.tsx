@@ -650,9 +650,9 @@ export default function DungeonCrawler() {
             })}
           </div>
 
-          {/* COMBAT HISTORY LOGS PANEL */}
-          <div className="mt-4 pt-3.5 border-t border-stone-200">
-            <div className="flex items-center gap-1.5 text-stone-555 font-mono text-[9px] uppercase mb-1.5">
+          {/* COMBAT HISTORY LOGS PANEL (MOBILE ONLY) */}
+          <div className="mt-4 pt-3.5 border-t border-stone-200 lg:hidden">
+            <div className="flex items-center gap-1.5 text-stone-500 font-mono text-[9px] uppercase mb-1.5">
               <Terminal className="w-3.5 h-3.5 text-amber-600" />
               <span>Daftar Kronologi Pertempuran:</span>
             </div>
@@ -667,6 +667,29 @@ export default function DungeonCrawler() {
             </div>
           </div>
 
+        </div>
+
+        {/* COMBAT HISTORY LOGS PANEL (DESKTOP RIGHT SIDEBAR) */}
+        <div className="hidden lg:flex lg:w-72 bg-[#faf9f5] p-6 flex-col justify-between shrink-0 border-l border-stone-200">
+          <div className="flex-1 flex flex-col">
+            <div className="flex items-center gap-1.5 text-stone-500 font-mono text-[10px] uppercase mb-3">
+              <Terminal className="w-3.5 h-3.5 text-amber-600" />
+              <span>Daftar Kronologi Pertempuran:</span>
+            </div>
+            
+            <div className="bg-[#fafaf7] p-4 border border-stone-200 flex-1 overflow-y-auto font-mono text-[10px] space-y-2 text-left text-stone-650 shadow-inner h-[280px] lg:h-[350px]">
+              {historyLogs.map((log, lidx) => (
+                <div key={lidx} className="flex gap-1.5 items-start">
+                  <ChevronRight className="w-3 h-3 text-amber-600 mt-0.5 shrink-0" />
+                  <span className={`${lidx === 0 ? "text-amber-700 font-bold" : ""}`}>{log}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+          
+          <div className="mt-5 pt-4 border-t border-stone-200 text-center text-[9px] text-stone-500 font-mono italic">
+            *Setiap kartu aksi mempengaruhi takdir dungeon secara instan.
+          </div>
         </div>
 
       </div>
