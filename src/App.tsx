@@ -151,22 +151,22 @@ export default function App() {
                     </div>
                     
                     <div className="space-y-2">
-                      <span className="text-[10px] uppercase tracking-[0.25em] text-stone-400 block font-bold font-sans">SEPUTU MEJA KASINO</span>
-                      <h3 className="font-serif italic text-2xl text-stone-800 tracking-tight group-hover:text-amber-600 transition-colors">Blackjack Klasik 21</h3>
+                      <span className="text-[10px] uppercase tracking-[0.25em] text-stone-400 block font-bold font-sans">ARENA DUEL ENERGI</span>
+                      <h3 className="font-serif italic text-2xl text-stone-800 tracking-tight group-hover:text-amber-600 transition-colors">Poké-Energy Duel (21)</h3>
                       <p className="text-stone-600 text-xs leading-relaxed font-sans opacity-95">
-                        Seni murni dalam berhitung. Berdiri berhadapan dengan bandar dengan setumpuk sepatu berisikan 6 deck. Lakukan taruhan strategis, gandakan taruhan Anda dengan Double Down, dan pertahankan koin emas Anda.
+                        Tantang Gym Leader dalam kumpul energi Pokémon! Tarik kartu collectible EX, taklukan limit 21 poin energi, pertahankan PokéCoins Anda, dan jadilah Master Kolektor sejati.
                       </p>
                     </div>
 
                     <div className="flex flex-wrap gap-2 text-[8px] uppercase tracking-wider font-mono text-stone-650">
-                      <span className="bg-stone-50 border border-stone-200 px-2.5 py-1">6 DECK BAR</span>
+                      <span className="bg-stone-50 border border-stone-200 px-2.5 py-1">6 DECK BOX</span>
                       <span className="bg-stone-50 border border-stone-200 px-2.5 py-1">PAYOUT 3:2</span>
-                      <span className="bg-stone-50 border border-stone-200 px-2.5 py-1">CHIP AMBER</span>
+                      <span className="bg-stone-50 border border-stone-200 px-2.5 py-1">POKÉCOINS</span>
                     </div>
                   </div>
 
                   <div className="mt-8 pt-4 border-t border-stone-100 flex items-center gap-2 text-[10px] uppercase tracking-[0.2em] font-semibold text-amber-600 group-hover:text-amber-700 transition-colors">
-                    <span>Mulai Transaksi Meja</span>
+                    <span>Masuki Arena Duel</span>
                     <ArrowRight className="w-3.5 h-3.5 transform group-hover:translate-x-1.5 transition duration-150" />
                   </div>
                 </motion.div>
@@ -242,7 +242,7 @@ export default function App() {
                   ← KEMBALI KE ARSIP UTAMA
                 </button>
                 <div className="text-[10px] uppercase tracking-widest text-[#d97706]/70 font-mono">
-                  MEJA: <span className="text-[#d97706] font-bold">AETHER BLACKJACK</span>
+                  ARENA: <span className="text-[#d97706] font-bold">DUEL ENERGI POKÉMON</span>
                 </div>
               </div>
 
